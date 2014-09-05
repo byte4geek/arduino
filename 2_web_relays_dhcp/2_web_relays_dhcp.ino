@@ -60,11 +60,11 @@ void loop() {
       
       BufferFiller bfill = ether.tcpOffset();
       bfill.emit_p(PSTR("HTTP/1.0 200 OK\r\n"
-                         "Content-Type: text/html\r\nPragma: no-cache\r\n\r\n"
-                         "<html><head><meta name='viewport' content='width=200px'/></head><body>"
-                         "<div style='position:absolute;width:200px;height:200px;top:1%;left:50%;margin:5px 0 0 -100px'>"
-                         "<div style='font:bold 18px verdana;text-align:center'>Web Rele'</div>"
-                         "<br><div style='text-align:center'>"));
+                        "Content-Type: text/html\r\nPragma: no-cache\r\n\r\n"
+                        "<html><head><meta name='viewport' content='width=200px'/></head><body>"
+                        "<div style='position:absolute;width:200px;height:200px;top:1%;left:50%;margin:5px 0 0 -100px'>"
+                        "<div style='font:bold 18px verdana;text-align:center'>Web Rele'</div>"
+                        "<br><div style='text-align:center'>"));
 
       if(led1Status) bfill.emit_p(PSTR("<a href=\"/?RELAY1\"><img src=\"http://www.byte4geek.com/images/arduino/butON.png\"></a><br>Stato Rele' 1 OFF<br>"));
       else bfill.emit_p(PSTR("<a href=\"/?RELAY1\"><img src=\"http://www.byte4geek.com/images/arduino/butOFF.png\"></a><br>Stato rele' 1 ON<br>"));
