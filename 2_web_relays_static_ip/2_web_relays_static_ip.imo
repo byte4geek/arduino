@@ -33,7 +33,7 @@ void setup () {
   ether.printIp("Netmask:\t", ether.netmask);
   ether.printIp("Gateway:\t", ether.gwip);
   ether.printIp("DNS:\t\t", ether.dnsip);
-  Serial.println();
+   Serial.println();
   
   pinMode(LED1PIN, OUTPUT);
   pinMode(LED2PIN, OUTPUT);
