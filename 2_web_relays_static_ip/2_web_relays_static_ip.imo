@@ -1,8 +1,9 @@
 #include <EtherCard.h>
 
-#define LED1PIN  2
-#define LED2PIN  3
+#define LED1PIN  2 //definisce il pin del LED 1
+#define LED2PIN  3 //definisce il pin del LED 2
 
+//settaggio dei valori statici
 static byte mymac[] = {0x00,0x19,0xCB,0xF4,0x03,0x01};
 static byte myip[] = {192,168,1,120};
 static byte gwip[] = {192,168,1,1};
@@ -16,7 +17,7 @@ boolean led2Status;
 void setup () {
  
   Serial.begin(57600);
-  Serial.println("2 WebRelay Ip Statico");
+  Serial.println("2 WebRele' Ip Statico");
  
   if (!ether.begin(sizeof Ethernet::buffer, mymac, 10))
     Serial.println( "Accesso fallito all'Ethernet Shield");
@@ -24,7 +25,7 @@ void setup () {
    Serial.println("Ethernet Shield initializzato");
  
   if (!ether.staticSetup(myip, gwip, dnsip, netmask ))
-    Serial.println("Impossibile assegnare l'indirizzo"); 
+    Serial.println("Impossibile assegnare l'indirizzo");
   else
     Serial.println("Indirizo statico configurato");
     
@@ -65,11 +66,11 @@ void loop() {
       
       BufferFiller bfill = ether.tcpOffset();
       bfill.emit_p(PSTR("HTTP/1.0 200 OK\r\n"
-                         "Content-Type: text/html\r\nPragma: no-cache\r\n\r\n"
-                         "<html><head><meta name='viewport' content='width=200px'/></head><body>"
-                         "<div style='position:absolute;width:200px;height:200px;top:1%;left:50%;margin:5px 0 0 -100px'>"
-                         "<div style='font:bold 18px verdana;text-align:center'>Web Rele'</div>"
-                         "<br><div style='text-align:center'>"));
+                        "Content-Type: text/html\r\nPragma: no-cache\r\n\r\n"
+                        "<html><head><meta name='viewport' content='width=200px'/></head><body>"
+                        "<div style='position:absolute;width:200px;height:200px;top:1%;left:50%;margin:5px 0 0 -100px'>"
+                        "<div style='font:bold 18px verdana;text-align:center'>Web Rele'</div>"
+                        "<br><div style='text-align:center'>"));
 
       if(led1Status) bfill.emit_p(PSTR("<a href=\"/?RELAY1\"><img src=\"http://www.byte4geek.com/images/arduino/butON.png\"></a><br>Stato Rele' 1 OFF<br>"));
       else bfill.emit_p(PSTR("<a href=\"/?RELAY1\"><img src=\"http://www.byte4geek.com/images/arduino/butOFF.png\"></a><br>Stato rele' 1 ON<br>"));
