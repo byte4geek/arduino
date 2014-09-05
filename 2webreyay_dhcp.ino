@@ -12,7 +12,7 @@ boolean led2Status;
 void setup () {
  
   Serial.begin(57600);
-  Serial.println("2 WebRelay");
+  Serial.println("2 WebRelay DHCP");
  
   if (!ether.begin(sizeof Ethernet::buffer, mymac, 10))
     Serial.println( "Accesso fallito all'Ethernet Shield");
