@@ -27,7 +27,7 @@ void setup () {
   ether.printIp("IP Address:\t", ether.myip);
   ether.printIp("Netmask:\t", ether.netmask);
   ether.printIp("Gateway:\t", ether.gwip);
-  Serial.println();
+   Serial.println();
   
   pinMode(LED1PIN, OUTPUT);
   pinMode(LED2PIN, OUTPUT);
